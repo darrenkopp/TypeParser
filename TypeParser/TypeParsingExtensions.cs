@@ -13,7 +13,7 @@ namespace TypeParser
             if (string.IsNullOrEmpty(name))
                 return TypeReference.Empty;
 
-            return ParseType(name, 0, name.Length);
+            return ParseType(name, 0, name.Length - 1);
         }
 
         private static TypeReference ParseType(string name, int start, int end)
