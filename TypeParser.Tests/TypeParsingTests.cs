@@ -21,6 +21,18 @@ namespace TypeParser
         }
 
         [Fact]
+        public void should_be_able_to_parse_type_without_assembly()
+        {
+            string type = "Namespace.Type";
+
+            var result = type.AsTypeReference();
+
+            Assert.Equal("Type", result.Name);
+            Assert.Equal("Namespace", result.Namespace);
+            Assert.Equal(AssemblyReference.Empty, result.Assembly);
+        }
+
+        [Fact]
         public void should_be_able_to_parse_basic_type()
         {
             string type = "Namespace.Type, AssemblyName";

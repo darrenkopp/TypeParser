@@ -114,7 +114,7 @@ namespace TypeParser
                 start++;
             }
 
-            return Math.Min(start, end);
+            return Math.Min(start, end - 1);
         }
 
         private static AssemblyReference ParseAssembly(string name, int start, int end, out int finish)
