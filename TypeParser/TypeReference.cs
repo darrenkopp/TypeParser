@@ -31,5 +31,10 @@ namespace TypeParser
         public IReadOnlyList<TypeReference> GenericTypeArguments { get; set; }
 
         public static TypeReference Empty { get { return _Empty; } }
+
+        public override string ToString()
+        {
+            return string.Concat(Namespace, '.', Name, ", ", Assembly);
+        }
     }
 }

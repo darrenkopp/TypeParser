@@ -22,5 +22,10 @@ namespace TypeParser
         public string Name { get; private set; }
 
         public static AssemblyReference Empty { get { return _Empty; } }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

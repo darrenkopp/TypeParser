@@ -98,5 +98,29 @@ namespace TypeParser
             Assert.Equal("Type3", argument2.Name);
             Assert.Equal("Assembly3", argument2.Assembly.Name);
         }
+
+        [Fact]
+        public void should_be_able_to_parse_nested_generic_type()
+        {
+            var type = "Namespace.Type`1[[Namespace2.Type2`1[[Namespace3.Type3, Assembly3]], Assembly2]], Assembly";
+
+            var result = type.AsTypeReference();
+
+            Assert.Equal("Namespace", result.Namespace);
+            Assert.Equal("Type", result.Name);
+            Assert.Equal("Assembly", result.Assembly.Name);
+
+            Assert.NotEmpty(result.GenericTypeArguments);
+
+            var argument1 = result.GenericTypeArguments[0];
+            Assert.Equal("Namespace2", argument1.Namespace);
+            Assert.Equal("Type2", argument1.Name);
+            Assert.Equal("Assembly2", argument1.Assembly.Name);
+
+            var argument2 = argument1.GenericTypeArguments[0];
+            Assert.Equal("Namespace3", argument2.Namespace);
+            Assert.Equal("Type3", argument2.Name);
+            Assert.Equal("Assembly3", argument2.Assembly.Name);
+        }
     }
 }
