@@ -54,25 +54,6 @@ namespace TypeParser
             }
 
             return arguments;
-            //int bracketOpenIndex = name.IndexOf('[', start);
-            //int count = int.Parse(name.Substring(start + 1, bracketOpenIndex - (start + 1)));
-
-            //int position = bracketOpenIndex + 1;
-            //TypeReference[] arguments = new TypeReference[count];
-            //for (int i = 0; i < count; i++)
-            //{
-            //    bracketOpenIndex = name.IndexOf('[', position);
-            //    int bracketCloseIndex = name.LastIndexOf(']', end-1);
-
-            //    var subType = name.Substring(bracketOpenIndex + 1, (bracketCloseIndex - bracketOpenIndex) - 1);
-            //    arguments[i] = ParseType(subType, 0, subType.Length);
-
-            //    // update position to character after close bracket
-            //    position = bracketCloseIndex + 1;
-            //}
-
-            //finish = position;
-            //return arguments;
         }
 
         static int FindEndOfNamespace(string name, int start, int end)
