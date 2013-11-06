@@ -11,17 +11,11 @@ namespace TypeParser
         static readonly TypeReference _Empty = new TypeReference();
         static readonly TypeReference[] NO_ARGUMENTS = new TypeReference[0];
 
-        private TypeReference()
+        public TypeReference(AssemblyReference assembly = null, string @namespace = null, string name = null, TypeReference[] typeArguments = null)
         {
-            Namespace = Name = string.Empty;
-            GenericTypeArguments = NO_ARGUMENTS;
-        }
-
-        public TypeReference(AssemblyReference assembly, string @namespace, string name, TypeReference[] typeArguments = null)
-        {
-            Assembly = assembly;
-            Namespace = @namespace;
-            Name = name;
+            Assembly = assembly ?? AssemblyReference.Empty;
+            Namespace = @namespace ?? string.Empty;
+            Name = name ?? string.Empty;
             GenericTypeArguments = typeArguments ?? NO_ARGUMENTS;
         }
 

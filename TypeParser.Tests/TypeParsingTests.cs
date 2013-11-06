@@ -64,7 +64,7 @@ namespace TypeParser
             var result = type.AsTypeReference();
 
             Assert.Equal("Type", result.Name);
-            Assert.Null(result.Namespace);
+            Assert.Equal(string.Empty, result.Namespace);
             Assert.Equal("AssemblyName", result.Assembly.Name);
         }
 

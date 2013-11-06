@@ -9,14 +9,10 @@ namespace TypeParser
     public class AssemblyReference
     {
         static readonly AssemblyReference _Empty = new AssemblyReference();
-        private AssemblyReference()
-        {
-            Name = string.Empty;    
-        }
 
-        public AssemblyReference(string name)
+        public AssemblyReference(string name = null)
         {
-            Name = name;
+            Name = name ?? string.Empty;
         }
 
         public string Name { get; private set; }
